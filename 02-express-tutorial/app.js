@@ -8,6 +8,9 @@ const server = http.createServer((req,res)=>{
         res.writeHead(200, { 'Content-Type': mimeType});
         console.log(mimeType)
         fs.readFile('final/express.html', 'utf-8', (err, data) => {
+            if (err){
+                console.log(err)
+            }
             res.write(data)
             res.end()
           });
